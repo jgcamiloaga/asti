@@ -1,5 +1,7 @@
 """Módulo de automatización para la generación de tickets de soporte en Excel (.xlsx)."""
 
+import hashlib
+import hmac
 import json
 import logging
 import math
@@ -187,10 +189,16 @@ def _notificar_webhook(
         }
     ).encode("utf-8")
 
+    headers = {"Content-Type": "application/json"}
+    secret = os.environ.get("WEBHOOK_SECRET", "").strip()
+    if secret:
+        firma = hmac.new(secret.encode("utf-8"), payload, hashlib.sha256).hexdigest()
+        headers["X-Webhook-Signature"] = f"sha256={firma}"
+
     req = urllib.request.Request(
         url,
         data=payload,
-        headers={"Content-Type": "application/json"},
+        headers=headers,
         method="POST",
     )
     try:
