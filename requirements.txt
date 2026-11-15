@@ -1,0 +1,4 @@
+streamlit>=1.62.0
+groq==1.7.0
+openpyxl>=3.1.0
+pytest==9.2.0
