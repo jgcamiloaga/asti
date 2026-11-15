@@ -17,9 +17,9 @@ Instala las dependencias desde la raíz del proyecto:
 pip install -r requirements.txt
 ```
 
-## Configuración de `GROQ_API_KEY`
+## Configuración de variables de entorno
 
-Configura tu clave de API en la variable de entorno `GROQ_API_KEY` (o en un archivo `.env` local):
+Copia `.env.example` a `.env` y completa tu clave de API en `GROQ_API_KEY`:
 
 **PowerShell:**
 
@@ -32,6 +32,13 @@ $env:GROQ_API_KEY = "tu_api_key_de_groq"
 ```bash
 export GROQ_API_KEY="tu_api_key_de_groq"
 ```
+
+### Webhook opcional de alertas
+
+Cuando se escala un ticket, la aplicación puede enviar una notificación `POST` en JSON si configuras:
+
+- `WEBHOOK_ALERTA_URL`: URL del receptor (ej. Slack, Teams o un endpoint propio).
+- `WEBHOOK_SECRET`: secreto opcional para firmar el cuerpo JSON con HMAC-SHA256 en la cabecera `X-Webhook-Signature: sha256=<firma>`.
 
 ## Ejecución local
 
@@ -65,18 +72,20 @@ Construye la imagen Docker:
 docker build -t soporte-ia:latest .
 ```
 
-Ejecuta el contenedor exponiendo el puerto `8501`, pasando `GROQ_API_KEY` y montando la carpeta `tickets/` para conservar los reportes Excel diarios (`tickets/tickets_YYYY-MM-DD.xlsx`) en tu máquina:
+Ejecuta el contenedor exponiendo el puerto `8501`, pasando tus variables de entorno y montando la carpeta `tickets/` para ver los reportes Excel diarios (`tickets/tickets_YYYY-MM-DD.xlsx`) directamente en la ruta del proyecto:
 
 **PowerShell:**
 
 ```powershell
-docker run --rm -e GROQ_API_KEY="tu_api_key_de_groq" -p 8501:8501 -v "${PWD}\tickets:/app/tickets" soporte-ia:latest
+docker run --rm --env-file .env -p 8501:8501 -v "${PWD}\tickets:/app/tickets" soporte-ia:latest
 ```
 
 **Git Bash:**
 
 ```bash
-MSYS_NO_PATHCONV=1 docker run --rm -e GROQ_API_KEY="tu_api_key_de_groq" -p 8501:8501 -v "$(pwd)/tickets:/app/tickets" soporte-ia:latest
+MSYS_NO_PATHCONV=1 docker run --rm --env-file .env -p 8501:8501 -v "$(pwd)/tickets:/app/tickets" soporte-ia:latest
 ```
+
+*(Si no usas archivo `.env`, reemplaza `--env-file .env` por `-e GROQ_API_KEY="tu_api_key_de_groq"`.)*
 
 Luego accede a la aplicación en `http://localhost:8501`.
