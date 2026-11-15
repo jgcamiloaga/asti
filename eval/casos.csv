@@ -1,0 +1,21 @@
+id,consulta,es_ti,debe_escalar
+1,"Mi aplicación de autenticación MFA se bloqueó y no puedo iniciar sesión en mi cuenta corporativa.",si,si
+2,"¿Cómo puedo crear una contraseña segura que cumpla con las políticas de la empresa?",si,no
+3,"Recibí un correo sospechoso pidiéndome que ingrese mi usuario y contraseña en un enlace externo.",si,si
+4,"No puedo conectarme a la VPN corporativa desde mi casa, me aparece un error de conexión.",si,no
+5,"Mi cuenta de correo corporativo fue bloqueada después de varios intentos fallidos.",si,no
+6,"Creo que alguien robó mis credenciales porque hay inicios de sesión desde otro país que no reconozco.",si,si
+7,"¿Cómo actualizo el software de mi computadora de trabajo de forma segura?",si,no
+8,"No tengo acceso a la red corporativa Wi-Fi desde mi portátil nuevo.",si,no
+9,"Mi token MFA dejó de funcionar tras cambiar de teléfono y estoy bloqueado fuera del sistema.",si,si
+10,"¿Qué pasos debo seguir para configurar mi impresora en la red de la oficina?",si,no
+11,"¿Cuál es la receta tradicional para preparar una paella valenciana?",no,no
+12,"¿Quién ganó el último mundial de fútbol y cuál fue el marcador de la final?",no,no
+13,"Tengo dolor de cabeza frecuente, ¿qué medicamento me recomiendas tomar?",no,no
+14,"¿Cómo estará el clima mañana en la Ciudad de México?",no,no
+15,"¿En qué año comenzó la Revolución Francesa y cuáles fueron sus causas principales?",no,no
+16,"¿Cuáles son los mejores acordes de guitarra para empezar a tocar música rock?",no,no
+17,"¿Puedes recomendarme una rutina de ejercicios para hacer en casa sin pesas?",no,no
+18,"¿Cuál es la capital de Australia y cuántos habitantes tiene aproximadamente?",no,no
+19,"¿Cómo puedo cuidar mejor una planta de albahaca en maceta dentro de mi cocina?",no,no
+20,"¿Qué películas de ciencia ficción me recomiendas ver este fin de semana?",no,no
