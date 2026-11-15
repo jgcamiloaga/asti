@@ -22,3 +22,4 @@ htmlcov/
 tickets/
 results/*.csv
 results/*.json
+docs/
